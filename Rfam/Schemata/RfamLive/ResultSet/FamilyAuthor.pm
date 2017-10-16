@@ -15,7 +15,7 @@ sub find_or_create_authorsFromFamilyObj {
   }
 
   # create an instance of the author table
-  my $author_tbl=RfamLive::ResultSet::Author->new();
+  my $author_tbl=RfamLive::ResultSet::Author;
 
   # delete family records if any
   my $family_records = $self->search({rfam_acc => $familyObj->{DESC}->{AC}});
