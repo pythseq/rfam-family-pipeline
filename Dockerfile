@@ -212,7 +212,7 @@ make && \
 make install
 
 # clone Rfam repo
-RUN cd /Rfam && git clone -b rfam-cloud https://github.com/Rfam/rfam-family-pipeline.git && \
+RUN cd /Rfam && git clone -b rfam-search-kubes https://github.com/Rfam/rfam-family-pipeline.git && \
 cp /Rfam/rfam-family-pipeline/dependencies/plot_outlist.R /Rfam/software/bin/.
 
 # Environment setup
