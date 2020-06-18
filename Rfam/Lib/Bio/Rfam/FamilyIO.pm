@@ -1533,11 +1533,12 @@ sub writeTbloutDependentFiles {
   my %seedseq_overlap_below_ga_scH = (); # key: SEED sequence, score of best hit   <  GA that overlaps with it
 
   # Prepare the queries for execution
-  my $sthDesc        = $rfdbh->prepare_seqaccToDescription();
-  my $sthTax         = $rfdbh->prepare_seqaccToSpeciesTaxStringAndId();
-  my $sthRfamseqSeed = $rfdbh->prepare_seqaccToTaxIdDescLengthMolTypeAndSource();
-  my $sthTaxSeed     = $rfdbh->prepare_taxIdToSpeciesDisplayNamesAndTaxString();
-
+  #my $sthDesc        = $rfdbh->prepare_seqaccToDescription();
+  my $sthDesc = $self->{config}->rfamlive->prepare_seqaccToDescription();
+  my $sthTax         = $self->{config}->rfamlive->prepare_seqaccToSpeciesTaxStringAndId();
+  my $sthRfamseqSeed = $self->{config}->rfamlive->prepare_seqaccToTaxIdDescLengthMolTypeAndSource();
+  my $sthTaxSeed     = $self->{config}->rfamlive->prepare_taxIdToSpeciesDisplayNamesAndTaxString();
+	
   # Fetch the seed sequence information we'll need to output to *species and *outlist
   my @seed_nse_A   = (); # array of SEED sequence names in name/start-end format
   my %seed_info_HH = (); # 1D key is SEED sequence name in name/start-end format
